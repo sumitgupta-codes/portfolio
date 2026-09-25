@@ -1,0 +1,200 @@
+.contact.section {
+  padding: var(--space-24) 0;
+  background: var(--color-bg);
+}
+
+/* ── Two-column wrapper ─────────────────────────────────────── */
+.contact__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+/* ── Info panel ─────────────────────────────────────────────── */
+.contact__info {
+  padding: var(--space-8);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #818cf8 100%);
+  border-radius: var(--radius-xl);
+  color: #fff;
+}
+
+.contact__info-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--space-4);
+}
+
+.contact__info-desc {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: rgb(255 255 255 / 0.85);
+  margin-bottom: var(--space-8);
+}
+
+.contact__info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.contact__info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.contact__info-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact__info-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgb(255 255 255 / 0.7);
+  margin-bottom: var(--space-1);
+}
+
+.contact__info-value {
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+a.contact__info-value {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+a.contact__info-value:hover { opacity: 0.85; }
+
+/* ── Form ───────────────────────────────────────────────────── */
+.contact__form-wrap {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ── Field ──────────────────────────────────────────────────── */
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.contact__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.contact__input,
+.contact__textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.contact__input::placeholder,
+.contact__textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.contact__input:focus,
+.contact__textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 0.12);
+}
+
+.contact__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Error state */
+.contact__field--error .contact__input,
+.contact__field--error .contact__textarea {
+  border-color: #ef4444;
+}
+.contact__field--error .contact__input:focus,
+.contact__field--error .contact__textarea:focus {
+  box-shadow: 0 0 0 3px rgb(239 68 68 / 0.12);
+}
+
+.contact__error {
+  font-size: 0.8rem;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* ── Submit button ──────────────────────────────────────────── */
+.contact__submit {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+}
+
+/* ── Success state ──────────────────────────────────────────── */
+.contact__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-10) var(--space-6);
+  gap: var(--space-3);
+}
+
+.contact__success-icon {
+  font-size: 2.5rem;
+}
+
+.contact__success h3 {
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+}
+
+.contact__success p {
+  color: var(--color-text-secondary);
+  max-width: 320px;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .contact__wrapper {
+    grid-template-columns: 1fr;
+  }
+  .contact__info {
+    /* Reorder so form appears first on mobile */
+    order: 2;
+  }
+  .contact__form-wrap {
+    order: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__form-wrap {
+    padding: var(--space-5);
+  }
+  .contact__submit {
+    width: 100%;
+    justify-content: center;
+  }
+}

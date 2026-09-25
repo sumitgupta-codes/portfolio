@@ -1,0 +1,173 @@
+/* ── Navbar ─────────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgb(248 250 252 / 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition:
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
+  height: var(--nav-height);
+}
+
+.navbar--scrolled {
+  box-shadow: var(--shadow-md);
+  border-bottom-color: var(--color-border);
+}
+
+.navbar__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+/* ── Logo ───────────────────────────────────────────────────── */
+.navbar__logo {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.navbar__logo:hover { text-decoration: none; }
+
+.navbar__logo-bracket {
+  color: var(--color-accent);
+}
+
+/* ── Desktop Links ──────────────────────────────────────────── */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.navbar__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  text-decoration: none;
+}
+
+.navbar__link:hover {
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  text-decoration: none;
+}
+
+.navbar__link--active {
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+
+/* ── CTA Button ─────────────────────────────────────────────── */
+.navbar__cta {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-accent);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-md);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.navbar__cta:hover {
+  background: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ── Hamburger ──────────────────────────────────────────────── */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.navbar__hamburger-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text-primary);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.navbar__hamburger--open .navbar__hamburger-bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.navbar__hamburger--open .navbar__hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+.navbar__hamburger--open .navbar__hamburger-bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ── Mobile Menu ────────────────────────────────────────────── */
+.navbar__mobile {
+  display: none;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-6);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--transition-normal), padding var(--transition-normal);
+}
+
+.navbar__mobile--open {
+  max-height: 400px;
+  padding-block: var(--space-4);
+}
+
+.navbar__mobile ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.navbar__mobile-link {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  padding: var(--space-3) var(--space-2);
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  text-decoration: none;
+}
+
+.navbar__mobile-link:hover,
+.navbar__mobile-link--active {
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  text-decoration: none;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  nav:has(.navbar__links) { display: none; }
+  .navbar__cta { display: none; }
+  .navbar__hamburger { display: flex; }
+  .navbar__mobile { display: block; }
+}

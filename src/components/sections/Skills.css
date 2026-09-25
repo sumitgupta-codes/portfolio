@@ -1,0 +1,37 @@
+.skills.section {
+  padding: var(--space-24) 0;
+  background: var(--color-bg);
+}
+
+.skills__groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.skills__group {
+  /* no additional styles needed — flex column from parent */
+}
+
+.skills__category {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skills__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+@media (max-width: 480px) {
+  .skills__grid {
+    gap: var(--space-3);
+  }
+}
